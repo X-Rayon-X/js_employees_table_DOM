@@ -71,7 +71,6 @@ function createLabelInput(text, inputName, type = 'text') {
   input.name = inputName;
   input.type = type;
   input.setAttribute('data-qa', inputName);
-  input.required = true;
 
   label.appendChild(input);
 
@@ -134,14 +133,14 @@ form.addEventListener('submit', (e) => {
 
   const position = form.elements['position'].value.trim();
 
-  if (!position) {
+  if (position === '') {
     pushNotification('Error', 'Position field is required', 'error');
 
     return;
   }
 
   const office = form.elements['office'].value;
-  const age = Number(form.elements['age']).value;
+  const age = Number(form.elements['age'].value);
 
   if (age < 18 || age > 90) {
     pushNotification(
