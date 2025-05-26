@@ -141,7 +141,7 @@ form.addEventListener('submit', (e) => {
   }
 
   const office = form.elements['office'].value;
-  const age = form.elements['age'].value;
+  const age = Number(form.elements['age']).value;
 
   if (age < 18 || age > 90) {
     pushNotification(
